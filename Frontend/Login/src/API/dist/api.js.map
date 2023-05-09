@@ -1,0 +1,1 @@
+{"version":3,"sources":["api.tsx"],"names":[],"mappings":";;AAAA,IAAM,GAAG,GAAG,oBAAoB,CAAC;AAEzB,kBAAG","file":"api.js","sourcesContent":["const api = '192.168.1.32:9001/';\r\n\r\nexport {api}"]}
