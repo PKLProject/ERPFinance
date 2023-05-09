@@ -1,0 +1,90 @@
+.nab {
+    margin-top: 20px;
+    height: 40px;
+    width: 100%;
+}
+.pge {
+    color: rgb(238, 255, 0);
+}
+
+.tes {
+    margin-right: 250px;
+}
+
+.table {
+    width: 100%;
+    filter: drop-shadow(0px 0px 2px grey);
+    -webkit-filter: drop-shadow(0px 0px 2px grey);
+}
+.hh {
+    margin-left: 80px;
+    margin-bottom: 20px;
+    margin-top: 50px;
+    position: relative;
+    font-size: large;
+    font-weight: bold;
+    
+
+}
+
+.p {
+    z-index: 1;
+}
+.tee {
+    background-color: rgb(252, 252, 252);
+    color: grey;
+    border: solid 1px rgba(0, 0, 0, 0.329);
+    height: 40px;
+}
+
+
+
+.he {
+    float: right;
+    margin-right: 230px;
+    margin-top: 2px;
+    width: 20px;
+    color: grey;
+    margin-bottom: 10px;
+    
+}
+
+.sort {
+    float: right;
+    position: relative;
+    width: 30px;
+    height: 30px;
+    margin-top: 8px;
+    margin-right: 10px;
+    color: grey;
+}
+
+.sortt {
+    float: right;
+    position: relative;
+    width: 30px;
+    height: 30px;
+    margin-top: 8px;
+    margin-right: 10px;
+    border: solid 1px rgba(0, 0, 0, 0.329);
+    color: grey;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+}
+
+.select {
+    float: right;
+    position: relative;
+    margin-top: 2px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.37);
+    width: 140px;
+}
+
+.masok {
+    background-color: rgb(235, 235, 235);
+}
