@@ -3,7 +3,7 @@ use serde::Deserialize;
 use sqlx::PgPool;
 use tide::{Request, Response};
 use tide::{Body, http};
-use serde_json::json;
+use serde_json::{json, Error};
 
 
 use crate::ws_response;
@@ -81,6 +81,51 @@ struct pengeluaran {
 }   
 
 #[derive(serde::Serialize, Debug ,Deserialize)]
+struct ReadData {
+    id: i32, 
+	jumlah : Option<String>,
+	tanggal : Option<String>,
+	id_jenis_transaksi : Option<i32>,
+	quantity : Option<String>,
+	id_satuan : Option<i32>,
+	id_asal : Option<i32>,
+	id_kategori: Option<i32>,
+	kurs : Option<String>,
+	sisa_saldo : Option<String>,
+
+}   
+
+#[derive(serde::Serialize, Debug ,Deserialize)]
+struct Update {
+    id:i32,
+	jumlah : Option<String>,
+	tanggal : Option<String>,
+	id_jenis_transaksi : Option<i32>,
+	quantity : Option<String>,
+	id_satuan : Option<i32>,
+	id_asal : Option<i32>,
+	id_kategori: Option<i32>,
+	kurs : Option<String>,
+	sisa_saldo : Option<String>,
+
+}   
+
+#[derive(serde::Serialize, Debug ,Deserialize)]
+struct Delete {
+    id:i32,
+	jumlah : Option<String>,
+	tanggal : Option<String>,
+	id_jenis_transaksi : Option<i32>,
+	quantity : Option<String>,
+	id_satuan : Option<i32>,
+	id_asal : Option<i32>,
+	id_kategori: Option<i32>,
+	kurs : Option<String>,
+	sisa_saldo : Option<String>,
+
+}   
+
+#[derive(serde::Serialize, Debug ,Deserialize)]
 struct Get{
     name : Option<String>,
 }
@@ -107,6 +152,7 @@ struct Satuan{
     id_satuan: i32,
 }
 
+//create
 pub async fn tabel_pengeluaran (mut req : Request<PgPool>) -> tide::Result<Response> {
     let param : pengeluaran = req.body_json().await?;
     let pool = req.state();
@@ -134,6 +180,84 @@ pub async fn tabel_pengeluaran (mut req : Request<PgPool>) -> tide::Result<Respo
      }
 
 }
+
+//read
+pub async fn read_pemasukkan(req : Request<PgPool>) -> tide::Result<Response>{
+    // let param : Get = req.query()?;
+    let pool = req.state();
+    let nama :Vec<ReadData> = sqlx::query_as!(
+ReadData, "SELECT id, jumlah , tanggal, id_jenis_transaksi, quantity, id_satuan, id_asal, id_kategori, kurs, sisa_saldo from manajemen_keuangan;")
+.fetch_all(pool).await?;
+println!("table : {:#?} ", nama);
+
+let response = Response::builder(200)
+            .body(Body::from_json(&nama)? ).build();
+        Ok(response)
+}
+
+//update
+pub async fn update_data (mut req : Request<PgPool>) -> tide::Result<Response> {
+    let param : Update = req.body_json().await?;
+    let pool = req.state();
+     
+     match
+     sqlx::query("UPDATE manajemen_keuangan SET jumlah=$2 , tanggal=$3, id_jenis_transaksi=$4, quantity=$5, id_satuan=$6, id_asal=$7, id_kategori=$8, kurs=$9, sisa_saldo=$10 where id=$1")
+     .bind(param.id)
+     .bind(param.jumlah)
+     .bind(param.tanggal)
+     .bind(param.id_jenis_transaksi)
+     .bind(param.quantity)
+     .bind(param.id_satuan)
+     .bind(param.id_asal)
+     .bind(param.id_kategori)
+     .bind(param.kurs)
+     .bind(param.sisa_saldo)
+     .execute(pool).await
+     {
+        Ok(_x) => {ws_response("OK", "Berhasil Update")},
+        Err(e) => {
+            println!("error insert : {:?}",e);
+            ws_response("Error", "Gagal Update ")
+        }
+
+     }
+}
+
+//delete
+pub async fn delete_data ( req : Request<PgPool>) -> tide::Result<Response> {
+    match req.query(){
+        Ok(x) => {
+            let param : Delete =x;
+            let pool = req.state();
+             
+             match
+             sqlx::query("DELETE FROM manajemen_keuangan WHERE id=$1")
+             .bind(param.id)
+             .execute(pool).await
+             {
+                Ok(_x) => {ws_response("OK", "Berhasil Delete")},
+                Err(e) => {
+                    println!("error delete : {:?}",e);
+                    ws_response("Error", "Gagal Delete ")
+                }        
+             }
+        }
+        Err(e) => {
+            println!("Error : {:?}",e);
+            let msg = format!("{:?}",e);
+            ws_response("Error", msg.as_str())
+        }
+    }
+
+}
+   
+
+
+
+
+
+
+
 
 //asal
 pub async fn table_asal(req : Request<PgPool>) -> tide::Result<Response>{
