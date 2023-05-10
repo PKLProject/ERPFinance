@@ -3,9 +3,12 @@ import { render } from 'solid-js/web';
 
 import './index.css';
 import './forgot/forgot.css';
-import './login/login.css'
+import './login/login.css';
+import './register/register.css';
 import Rafi from './forgot/forgot';
 import Rapi from './login/login';
+import Rapii from './register/register';
+
 
 
 
@@ -18,4 +21,4 @@ if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
 }
 
 
-render(() => <Rapi />, root!);
+render(() => <Rapii />, root!);

@@ -1,3 +1,34 @@
-![Screenshot (565)](https://user-images.githubusercontent.com/130965326/237059337-8dc4c149-5fc2-4f6d-8298-acc8a369012b.png)
-![Screenshot (566)](https://user-images.githubusercontent.com/130965326/237059345-0cac69f9-f8fa-4fc8-9f9b-8dd259b53424.png)
-![Screenshot (564)](https://user-images.githubusercontent.com/130965326/237059349-d87e170c-18bc-4bc7-b3b4-40f89a76f3ed.png)
+## Usage
+
+Those templates dependencies are maintained via [pnpm](https://pnpm.io) via `pnpm up -Lri`.
+
+This is the reason you see a `pnpm-lock.yaml`. That being said, any package manager will work. This file can be safely be removed once you clone a template.
+
+```bash
+$ npm install # or pnpm install or yarn install
+```
+
+### Learn more on the [Solid Website](https://solidjs.com) and come chat with us on our [Discord](https://discord.com/invite/solidjs)
+
+## Available Scripts
+
+In the project directory, you can run:
+
+### `npm dev` or `npm start`
+
+Runs the app in the development mode.<br>
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+The page will reload if you make edits.<br>
+
+### `npm run build`
+
+Builds the app for production to the `dist` folder.<br>
+It correctly bundles Solid in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.<br>
+Your app is ready to be deployed!
+
+## Deployment
+
+You can deploy the `dist` folder to any static host provider (netlify, surge, now, etc.)
