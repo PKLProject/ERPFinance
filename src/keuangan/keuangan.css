@@ -1,0 +1,121 @@
+body{
+    margin: 0;
+}
+nav{
+    width: 100vw;
+    height: 7vw;
+    margin: auto;
+    display: block;
+    position: sticky;
+    position: -webkit-sticky;
+    line-height: 2vw;
+    top: 0;
+}
+nav ul{
+    margin: 1vw 2vw;
+    padding: 0;
+    overflow: hidden;
+    list-style-type: none;
+}
+nav ul li {
+    float: left;
+}
+nav ul li p {
+    padding: 0 2vw;
+}
+.wrapper {
+    width:100vw; 
+    margin:auto;
+    position:relative;
+}
+.menu{
+    float: left;
+}
+.menu ul li img{
+    width:20vw;
+    margin-top: 0.5vw;
+}
+.orang {
+    float:right;
+    display: flex;
+    padding: 0 2vw;
+    margin-top: 0.5vw;
+}
+.orang img{
+    width:4vw;
+    height:4vw;
+    padding:0.5vw;
+}
+.ag-theme-alpine{
+    height: 40vw;
+    width: 100vw;
+}
+.bottom-navbar {
+    width:100vw;
+    height:3vw;
+}
+.tools {
+    float: right;
+    margin : auto 1vw;
+}
+input {
+    padding: 0.5vw 1vw;
+    width: 10vw;
+}
+.preview {
+    float: left;
+    margin : -1.5vw 1vw;
+}
+.kotak-tambahData{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.kotak-tambahData {
+    width: 30vw;
+    height: 40vw;
+    background: white;
+    box-shadow: 0 0.25vw 4vw 0 rgba(0, 0, 0,.4);
+    z-index: 1;
+}
+.header {
+    height: 5vw;
+    overflow: hidden;
+    margin: 0 1vw;
+    padding: 0;
+}
+.bodyer{
+    margin:0vw 2vw;
+}
+.isi{
+    margin :0;
+    display: flex;
+    padding: 0.0625vw;
+}
+.isi input{
+    height: 1vw;
+    margin: auto;
+}
+.isi p{
+    width: 10vw;
+}
+.footer{
+    margin: 1vw 4vw;
+}
+.close-btn{
+    padding: 0.25vw 2vw;
+    float: left;
+    border : 0.125vw solid yellow;
+    border-radius: 0.25vw;
+}
+.close-btn:hover{
+    background-color: yellow;
+    cursor: pointer;
+}
+.add-btn{
+    padding: 0.25vw 2vw;
+    float: right;
+    border : 0.125vw solid yellow;
+    border-radius: 0.25vw;
+}
