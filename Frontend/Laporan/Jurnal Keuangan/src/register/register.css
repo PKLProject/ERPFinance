@@ -1,0 +1,40 @@
+.kotak1{
+    position: fixed;
+    width: 400px;
+    height: 500px;
+    background: grey;
+    left: 35%;
+    top: 10%;
+    border-radius: 8%;
+    
+}
+
+.wb{
+    position: relative;
+    top:10%;
+    color: greenyellow;
+}
+
+.inpt{
+    position: relative;
+    left: 10%;  
+    color: greenyellow;
+     
+}
+
+.btn{
+    position: relative;
+    left: 18%;
+    margin-top: 8%;
+    color: greenyellow;
+}
+
+.erp{
+    position: relative;
+    font-size: xx-large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    left: 28%;
+    margin-bottom: 12%;
+    color: greenyellow;
+    
+}
